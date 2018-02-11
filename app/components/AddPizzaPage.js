@@ -91,7 +91,7 @@ class AddPizzaPage extends React.Component {
 	}
 	render() {
 		const { pizzaSizes, selectedPizza, toppings, pizzaPrice, error } = this.state;
-		let loading = true;
+		let loading = this.props.data.loading;
 		let checkBoxes;
 		if (selectedPizza) {
 			checkBoxes = toppings.map((item, index) => {
@@ -108,7 +108,6 @@ class AddPizzaPage extends React.Component {
 					</li>
 				)
 			});
-			loading = false
 		} else {
 			checkBoxes = null;
 		}
