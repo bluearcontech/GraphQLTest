@@ -5,7 +5,7 @@ import AddPizzaPage from '../components/AddPizzaPage';
 const pizzaName = 'LARGE'
 // const pizzaQuery = gql`
 //   query {
-//     pizzaSizeByName(name: "small") {
+//     pizzaSizeByName(name: "SMALL") {
 //       name
 //       basePrice
 //       toppings {
