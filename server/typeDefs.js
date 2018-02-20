@@ -1,4 +1,5 @@
-const typeDefs = [`
+const typeDefs = [
+  `
   # Topping type
   type pizzaToppingConnection {
     defaultSelected: Boolean
@@ -25,7 +26,7 @@ const typeDefs = [`
     pizzaSizes: [Pizza]!
     pizzas: [Pizza]!
   }
-`
-]
+`,
+];
 
 module.exports = typeDefs;

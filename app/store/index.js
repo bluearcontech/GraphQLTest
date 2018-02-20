@@ -5,49 +5,46 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { createBrowserHistory } from 'history';
 import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
 import { reducer as formReducer } from 'redux-form';
-import reducers from '../reducers'
+import reducers from '../reducers';
 
 const token = localStorage.getItem('token');
 const networkInterface = createNetworkInterface({ uri: 'http://localhost:4000/graphql' });
 
-networkInterface.use([{
+networkInterface.use([
+  {
     applyMiddleware(req, next) {
-        if (!req.options.headers) {
-            req.options.headers = {}; // Create the header object if needed.
-        }
+      if (!req.options.headers) {
+        req.options.headers = {}; // Create the header object if needed.
+      }
 
-        // Get the authentication token from local storage if it exists
-        req.options.headers.token = token ? token : null;
-        next();
-    }
-}]);
+      // Get the authentication token from local storage if it exists
+      req.options.headers.token = token ? token : null;
+      next();
+    },
+  },
+]);
 
 export const client = new ApolloClient({
-    networkInterface
+  networkInterface,
 });
 
 export default (initial_state = []) => {
+  const store = createStore(
+    combineReducers({
+      apollo: client.reducer(),
+      form: formReducer,
+      pizzas: reducers,
+    }),
+    initial_state,
+    composeWithDevTools(applyMiddleware(thunk)),
+  );
 
-    const store = createStore(
-        combineReducers({
-            apollo: client.reducer(),
-            form: formReducer,
-            pizzas: reducers,
-        }),
-        initial_state,
-        composeWithDevTools(
-            applyMiddleware(
-                thunk
-            )
-        )
-    )
+  if (module.hot) {
+    module.hot.accept('../reducers', () => {
+      const nextReducer = require('../reducers'); // eslint-disable-line global-require
+      store.replaceReducer(nextReducer);
+    });
+  }
 
-    if (module.hot) {
-        module.hot.accept('../reducers', () => {
-            const nextReducer = require('../reducers') // eslint-disable-line global-require
-            store.replaceReducer(nextReducer)
-        })
-    }
-
-    return store
-}
+  return store;
+};

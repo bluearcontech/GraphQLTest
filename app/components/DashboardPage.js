@@ -1,7 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import { removePizzaAction } from '../actions';
-const DshboardPage = (props) => {
+const DshboardPage = props => {
   const pizzas = props.pizzas;
   if (!pizzas) {
     return (
@@ -15,9 +15,9 @@ const DshboardPage = (props) => {
     );
   }
 
-  const removePizza = (index) => {
+  const removePizza = index => {
     props.removePizzaAction(index);
-  }
+  };
 
   return (
     <div className="container">
@@ -35,31 +35,34 @@ const DshboardPage = (props) => {
               </tr>
             </thead>
             <tbody>
-              {pizzas && pizzas.map((pizza, index) => (
-                <tr key={index}>
-                  <th scope="row">{index + 1}</th>
-                  <td>{pizza.name}</td>
-                  <td>{pizza.basePrice}</td>
-                  <td>{pizza.price}</td>
-                  <td><button onClick={()=> removePizza(index)}>Remove</button></td>
-                </tr>
-              ))}
+              {pizzas &&
+                pizzas.map((pizza, index) => (
+                  <tr key={index}>
+                    <th scope="row">{index + 1}</th>
+                    <td>{pizza.name}</td>
+                    <td>{pizza.basePrice}</td>
+                    <td>{pizza.price}</td>
+                    <td>
+                      <button onClick={() => removePizza(index)}>Remove</button>
+                    </td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>
       </div>
     </div>
-  )
+  );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-    pizzas: state.pizzas
-  }
+    pizzas: state.pizzas,
+  };
 };
 
 const mapDispatchToProps = {
-  removePizzaAction
-}
+  removePizzaAction,
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(DshboardPage)
+export default connect(mapStateToProps, mapDispatchToProps)(DshboardPage);

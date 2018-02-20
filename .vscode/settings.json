@@ -1,0 +1,10 @@
+{
+    // Place your settings in this file to overwrite default and user settings.
+    "javascript.validate.enable": false,
+    "prettier.trailingComma": "all",
+    "prettier.singleQuote": true,
+    "prettier.semi": true,
+    "files.eol": "\n",
+    "prettier.printWidth": 80,
+    "prettier.tabWidth": 2
+}
