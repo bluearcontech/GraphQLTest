@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const webpack = require('webpack');
 const { apolloExpress, graphiqlExpress } = require('apollo-server');
 const { makeExecutableSchema } = require('graphql-tools');
-const middleware = require('../app/middleware');
+const renderFullPage = require('../app/renderFullPage');
 
 const { server, database } = require('./config');
 const typeDefs = require('./typeDefs');
@@ -64,7 +64,7 @@ if (process.env.NODE_ENV === 'development') {
   app.use(express.static(path.resolve(__dirname, 'app')));
 }
 
-app.get('*', middleware);
+app.get('*', renderFullPage);
 
 //Finally starting the listener
 app.listen(server.port, err => {

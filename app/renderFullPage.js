@@ -3,6 +3,7 @@ import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import App from '../components/App';
 import reducers from './reducers';
 
 module.exports = function (req, res){
