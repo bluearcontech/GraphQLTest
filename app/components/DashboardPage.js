@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { removePizzaAction } from '../actions';
-const DshboardPage = props => {
+const DashboardPage = props => {
   const pizzas = props.pizzas;
   if (!pizzas) {
     return (
@@ -65,4 +65,4 @@ const mapDispatchToProps = {
   removePizzaAction,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(DshboardPage);
+export default connect(mapStateToProps, mapDispatchToProps)(DashboardPage);
