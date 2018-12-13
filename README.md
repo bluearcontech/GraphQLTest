@@ -16,7 +16,7 @@ This project use Apollo Server to integrate GraphQL
 ## Quickstart
 
 ```
-git clone https://github.com/forstle/nflApp.git your_app
+git clone https://github.com/forstleblue/GraphQLTest.git your_app
 cd your_app
 npm install
 npm run start
@@ -25,7 +25,7 @@ npm run start
 ## Available Commands
 
 `npm run start` - starts the development server.
-Oen http://localhost:3000/
+Oen http://localhost:4000/
 `npm run eslint` Run eslint
 
 ## File Structure
@@ -45,10 +45,8 @@ If `NODE_ENV` is development, we apply Webpack middlewares for bundling and Hot 
 The `app` directory contains all the shared components, routes and reducers.
 `action` folder have all actions for fetching data.
 `reducers` folder have app holds app state
-`saga` folder have all saga for fetching data.
 `routes` have all routing for this app
-`store` for saga store
-`service` defines API for fetching data using `fetch`
+`store` for redux store
 The `server` runs node js server
 
 
