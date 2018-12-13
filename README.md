@@ -1,6 +1,6 @@
-# NFL Test App
+# GraphQL Query
 
-This project list Nfl players.
+This project use Apollo Server to integrate GraphQL
 ## Features
 
 - [**React**](https://reactjs.org/) 16.4.1
