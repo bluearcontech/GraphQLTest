@@ -49,4 +49,7 @@ The `app` directory contains all the shared components, routes and reducers.
 `store` for redux store
 The `server` runs node js server
 
+## ScreenShot
+
+![Alt text](app/screen/screen1.png?raw=true 'Graph QL Server')
 
