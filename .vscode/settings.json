@@ -2,6 +2,7 @@
     // Place your settings in this file to overwrite default and user settings.
     "javascript.validate.enable": false,
     "prettier.trailingComma": "all",
+    "eslint.autoFixOnSave": true,
     "prettier.singleQuote": true,
     "prettier.semi": true,
     "files.eol": "\n",

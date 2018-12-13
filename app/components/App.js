@@ -1,10 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Navbar from '../containers/NavbarContainer';
 
-export default ({ children }) => (
+const App = ({ children }) => (
   <div>
     <Navbar />
     {children}
   </div>
 );
+
+App.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export default App;
