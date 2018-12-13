@@ -95,10 +95,11 @@ class AddPizzaPage extends React.Component {
     event.preventDefault();
     const { selectedPizza, pizzaPrice } = this.state;
     if (selectedPizza) {
-      this.props.addPizzaAction(selectedPizza.name, selectedPizza.basePrice, pizzaPrice.toFixed(2));
+      this.props.addPizza(selectedPizza.name, selectedPizza.basePrice, pizzaPrice.toFixed(2));
       this.props.history.push('/');
     }
   }
+
   render() {
     const { pizzaSizes, selectedPizza, toppings, pizzaPrice, error } = this.state;
     let loading = this.props.data.loading;
@@ -168,12 +169,14 @@ class AddPizzaPage extends React.Component {
 AddPizzaPage.propTypes = {
   data: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
-  addPizzaAction: PropTypes.func.isRequired,
+  addPizza: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = {
-  addPizzaAction,
-};
+function mapDispatchToProps(dispatch) {
+  return {
+    addPizza: (name, basePrice, price) => dispatch(addPizzaAction(name, basePrice, price)),
+  };
+}
 
 export default connect(
   null,
