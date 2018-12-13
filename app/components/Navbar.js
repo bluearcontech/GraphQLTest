@@ -2,36 +2,43 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const NavBar = props => {
-  const inActiveTab = 'nav-item';
-  const activeTab = 'nav-item active';
-  const links = (
-    <div className="collapse navbar-collapse">
-      <ul className="nav navbar-nav">
-        <li className={props.location.pathname === '/' ? activeTab : inActiveTab}>
-          <Link to="/" className="nav-item nav-link">
-            Home
-          </Link>
-        </li>
-        <li className={props.location.pathname === '/add' ? activeTab : inActiveTab}>
-          <Link to="/add" className="nav-item nav-link">
-            Add a pizza
-          </Link>
-        </li>
-      </ul>
-    </div>
-  );
+class NavBar extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-  return (
-    <nav className="navbar navbar-default">
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12">{links}</div>
-        </div>
+  render() {
+    const inActiveTab = 'nav-item';
+    const activeTab = 'nav-item active';
+    const links = (
+      <div className="collapse navbar-collapse">
+        <ul className="nav navbar-nav">
+          <li className={this.props.location.pathname === '/' ? activeTab : inActiveTab}>
+            <Link to="/" className="nav-item nav-link">
+              Home
+            </Link>
+          </li>
+          <li className={this.props.location.pathname === '/add' ? activeTab : inActiveTab}>
+            <Link to="/add" className="nav-item nav-link">
+              Add a pizza
+            </Link>
+          </li>
+        </ul>
       </div>
-    </nav>
-  );
-};
+    );
+
+    return (
+      <nav className="navbar navbar-default">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">{links}</div>
+          </div>
+        </div>
+      </nav>
+    );
+  }
+}
+
 
 NavBar.propTypes = {
   location: PropTypes.object.isRequired,
