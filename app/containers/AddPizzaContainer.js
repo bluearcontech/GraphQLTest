@@ -2,6 +2,8 @@ import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
 import AddPizzaPage from '../components/AddPizzaPage';
+
+// eslint-disable-next-line
 const pizzaName = 'LARGE';
 
 const pizzaQuery = gql`

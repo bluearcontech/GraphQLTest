@@ -2,8 +2,6 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import ApolloClient, { createNetworkInterface } from 'apollo-client';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { createBrowserHistory } from 'history';
-import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
 import { reducer as formReducer } from 'redux-form';
 import reducers from '../reducers';
 

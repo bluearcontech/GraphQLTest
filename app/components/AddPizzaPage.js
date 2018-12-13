@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addPizzaAction } from '../actions/';
 import { RingLoader } from 'react-spinners';
@@ -17,6 +18,8 @@ class AddPizzaPage extends React.Component {
     this.selectToppings = this.selectToppings.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
+
+  // eslint-disable-next-line
   componentWillReceiveProps(nextProps) {
     if (this.state.pizzaSizes.length === 0 && nextProps.data.pizzaSizes.length > 0) {
       let selectedPizza;
@@ -162,8 +165,17 @@ class AddPizzaPage extends React.Component {
   }
 }
 
+AddPizzaPage.propTypes = {
+  data: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+  addPizzaAction: PropTypes.func.isRequired,
+};
+
 const mapDispatchToProps = {
   addPizzaAction,
 };
 
-export default connect(null, mapDispatchToProps)(AddPizzaPage);
+export default connect(
+  null,
+  mapDispatchToProps,
+)(AddPizzaPage);

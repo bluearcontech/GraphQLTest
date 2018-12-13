@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-export default props => {
+const NavBar = props => {
   const inActiveTab = 'nav-item';
   const activeTab = 'nav-item active';
   const links = (
@@ -31,3 +32,9 @@ export default props => {
     </nav>
   );
 };
+
+NavBar.propTypes = {
+  location: PropTypes.object.isRequired,
+};
+
+export default NavBar;

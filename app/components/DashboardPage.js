@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import { removePizzaAction } from '../actions';
+
 const DashboardPage = props => {
   const pizzas = props.pizzas;
   if (!pizzas) {
@@ -55,6 +58,11 @@ const DashboardPage = props => {
   );
 };
 
+DashboardPage.propTypes = {
+  pizzas: PropTypes.object.isRequired,
+  removePizza: PropTypes.func.isRequired,
+};
+
 const mapStateToProps = state => {
   return {
     pizzas: state.pizzas,
@@ -65,4 +73,7 @@ const mapDispatchToProps = {
   removePizzaAction,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(DashboardPage);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(DashboardPage);
