@@ -1,16 +1,14 @@
 //requiring NPM modeles
 const express = require('express');
 const cors = require('cors');
-const mongoose = require('mongoose');
 const path = require('path');
-const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const webpack = require('webpack');
 const { apolloExpress, graphiqlExpress } = require('apollo-server');
 const { makeExecutableSchema } = require('graphql-tools');
 const renderFullPage = require('../app/renderFullPage');
 
-const { server, database } = require('./config');
+const { server } = require('./config');
 const typeDefs = require('./typeDefs');
 const resolvers = require('./resolvers');
 

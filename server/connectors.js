@@ -1,5 +1,3 @@
-const mongoose = require('mongoose');
-
 const Pizza = require('./model/Pizza');
 
 const connectors = {

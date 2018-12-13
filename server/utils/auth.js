@@ -3,8 +3,7 @@ const bcrypt = require('bcrypt-nodejs');
 
 const config = require('../config');
 
-exports.getTokenFromRequest = req =>
-  req.body.token || req.params.token || req.headers.authorization;
+exports.getTokenFromRequest = req => req.body.token || req.params.token || req.headers.authorization;
 
 exports.createToken = payload =>
   jwt.sign(payload, config.auth.secret, {

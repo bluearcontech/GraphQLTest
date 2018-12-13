@@ -19,6 +19,7 @@ const DashboardPage = props => {
   }
 
   const removePizza = index => {
+    // eslint-disable-next-line
     props.removePizzaAction(index);
   };
 

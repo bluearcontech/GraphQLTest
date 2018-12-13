@@ -1,7 +1,5 @@
 import fetch from 'isomorphic-fetch';
-import gql from 'graphql-tag';
 const connectors = require('./connectors');
-const Pizza = require('./model/Pizza');
 
 const pizzaQuerySizes = `{
   pizzaSizes {
@@ -22,8 +20,7 @@ const pizzaQuerySizes = `{
 const resolvers = {
   Query: {
     pizzas() {
-      return connectors.Pizza
-        .getPizzas()
+      return connectors.Pizza.getPizzas()
         .then(pizzas => {
           return pizzas.map(pizza => {
             return {
@@ -64,6 +61,7 @@ const resolvers = {
           return res.data.pizzaSizeByName;
         });
     },
+    // eslint-disable-next-line
     pizzaSizes(root, args, context) {
       return fetch('https://core-graphql.dev.waldo.photos/pizza', {
         method: 'POST',
