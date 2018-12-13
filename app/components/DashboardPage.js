@@ -59,8 +59,8 @@ const DashboardPage = props => {
 };
 
 DashboardPage.propTypes = {
-  pizzas: PropTypes.object.isRequired,
-  removePizza: PropTypes.func.isRequired,
+  pizzas: PropTypes.array.isRequired,
+  removePizza: PropTypes.func,
 };
 
 const mapStateToProps = state => {
