@@ -1,14 +1,15 @@
 const typeDefs = [
   `
   # Topping type
-  type pizzaToppingConnection {
-    defaultSelected: Boolean
-    topping: Topping!
-  }
 
   type Topping {
     name: String!
     price: Float!
+  }
+
+  type pizzaToppingConnection {
+    defaultSelected: Boolean
+    topping: Topping!
   }
 
   # Pizze type.
